@@ -1,0 +1,84 @@
+.setting {
+    position: fixed;
+    right: 0;
+    top: 30%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    background-color: #fff;
+    padding: 20px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.setting .setting-icons {
+    margin: auto;
+    cursor: pointer;
+}
+.setting .setting-icon {
+    animation: rotation 3s infinite linear;
+}
+.setting .close-icon{
+    animation: rotation 0.3s;
+}
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.setting .setting-content {
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
+    transition: 1s;
+    animation: fade 0.8s linear;
+}
+.setting .setting-content p{
+    color: rgba(0, 0, 0, 0.67);
+    font-size: 13px;
+    margin: auto;
+}
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.setting-content .items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.setting-content .items button {
+    border: none;
+    outline: none;
+    box-shadow: 0;
+    padding: 30px 50px;
+    border-radius: 5px;
+    
+}
+
+.setting-content .items button:nth-child(1) {
+    background-image: linear-gradient(to right, #41295a, #2F0743);
+}
+
+.setting-content .items button:nth-child(2) {
+    background-image: linear-gradient(to right, #4568DC, #B06AB3);
+}
+
+.setting-content .items button:nth-child(3) {
+    background-image: linear-gradient(to right, #CB356B, #BD3F32);
+}
+
+.setting-content .items button:nth-child(4) {
+    background-image: linear-gradient(to right, #642B73, #C6426E);
+}

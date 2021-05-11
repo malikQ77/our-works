@@ -1,0 +1,15 @@
+<div class="setting">
+    <div class="setting-icons">
+        <img *ngIf="!showBackgroundManger" class="setting-icon" (click)="handleShowBackgroundManger()" src="../../../assets/images/settings.svg">
+        <img *ngIf="showBackgroundManger" class="close-icon" (click)="handleShowBackgroundManger()" src="../../../assets/images/cancel.svg">
+    </div>
+    <div *ngIf="showBackgroundManger" class="setting-content">
+        <p>Choose Your Theme Mode</p>
+        <div class="items">
+            <button (click)="background1()"></button>
+            <button (click)="background2()"></button>
+            <button (click)="background3()"></button>
+            <button (click)="background4()"></button>
+        </div>
+    </div>
+</div>

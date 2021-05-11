@@ -1,0 +1,8 @@
+<p>works-items works!</p>
+<div class="row items-container">
+    <div class="item mr-5" *ngFor="let route of worksItemsRouter">
+      <p>{{ route.routeName }}</p>
+      <p>{{ route.routeDesc }}</p>
+      <a routerLink="{{ route.routeURL }}">Visit</a>
+    </div>
+  </div>
