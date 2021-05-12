@@ -1,0 +1,29 @@
+.container {
+    background-color: #fff;
+    padding: 0 !important;
+    margin: 40px auto;
+    box-shadow: 0 8px 32px rgb(0 0 0 / 10%), 0 2px 8px rgb(0 0 0 / 10%);
+    border-radius: 10px;
+    display: grid !important;
+}
+
+.head {
+    background-color: #f6f7f8;
+    height: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding: 0 15px;
+    grid-gap: 0px !important;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.head .dot {
+    width: 12px;
+    height: 12px;
+    background: #999;
+    border-radius: 100px;
+    margin: auto 6px;
+    float: right;
+}

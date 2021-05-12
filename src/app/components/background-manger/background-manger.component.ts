@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from "@ngrx/store";
-import { Observable } from "rxjs";
 import { CookieService } from 'ngx-cookie-service';
 
 
@@ -17,21 +16,17 @@ export class BackgroundMangerComponent implements OnInit {
 
   backgroundColor: string = '';
   showBackgroundManger = false;
-  backgroundColor$: Observable<string>;
   constructor(private store: Store<BackgroundState>, private cookieService: CookieService) {
-    this.backgroundColor$ = this.store.select('backgroundColor');
-    this.backgroundColor$.subscribe(background => {
-      this.backgroundColor = background;
-      
-      if(!this.cookieService.check('background')){
+    this.store.select('backgroundColor').subscribe(background => {
+      let cookieValue = this.cookieService.get('background');
+      if(!cookieValue){
+        this.cookieService.set('background', background);
+      }else if(cookieValue && background != 'linear-gradient(to right, #642B73, #C6426E)'){
         this.cookieService.set('background', background);
       }
-      if(this.cookieService.get('background') == background){
-        document.body.style.backgroundImage = background;
-      }else{
-        document.body.style.backgroundImage = this.cookieService.get('background')
-      }
-    })
+      this.backgroundColor = background;
+      document.body.style.backgroundImage =  this.cookieService.get('background');
+    });
   }
 
   ngOnInit(): void {
@@ -42,19 +37,17 @@ export class BackgroundMangerComponent implements OnInit {
   }
 
   background1() {
-    this.cookieService.set('background', this.backgroundColor);
     this.store.dispatch({ type: 'background1' })
   }
   background2() {
-    this.cookieService.set('background', this.backgroundColor);
     this.store.dispatch({ type: 'background2' })
   }
   background3() {
-    this.cookieService.set('background', this.backgroundColor);
     this.store.dispatch({ type: 'background3' })
   }
   background4() {
     this.cookieService.set('background', this.backgroundColor);
+    document.body.style.backgroundImage =  this.backgroundColor
     this.store.dispatch({ type: '' })
   }
 }
