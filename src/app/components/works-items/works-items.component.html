@@ -1,7 +1,17 @@
 <div class="row items-container">
+  <div class="item mr-5">
+    <h6>PTway form</h6>
+    <p>Used Technology: React.js , Node.js , MongoDB</p>
+    <a href="http://ptway.epizy.com/" target="_blank"  [ngStyle]="{'color': backgroundColor , 'border-color': backgroundColor}">Check it out</a>
+  </div>
+  <div class="item mr-5">
+    <h6>Tazawd</h6>
+    <p>Used Technology: Vue.js , Laravel , Google Cloud</p>
+    <a href="http://tazawd.com/" target="_blank"  [ngStyle]="{'color': backgroundColor , 'border-color': backgroundColor}">Check it out</a>
+  </div>
   <div id="item" class="item mr-5" *ngFor="let route of worksItemsRouter">
-    <p>{{ route.routeName }}</p>
+    <h6>{{ route.routeName }}</h6>
     <p>{{ route.routeDesc }}</p>
-    <a routerLink="{{ route.routeURL }}" [ngStyle]="{'background': backgroundColor}">Check it out</a>
+    <a [routerLink]="route.routeURL"  [ngStyle]="{'color': backgroundColor , 'border-color': backgroundColor}">Check it out</a>
   </div>
 </div>

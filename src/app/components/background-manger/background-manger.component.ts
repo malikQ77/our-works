@@ -46,8 +46,6 @@ export class BackgroundMangerComponent implements OnInit {
     this.store.dispatch({ type: 'background3' })
   }
   background4() {
-    this.cookieService.set('background', this.backgroundColor);
-    document.body.style.backgroundImage =  this.backgroundColor
-    this.store.dispatch({ type: '' })
+    this.store.dispatch({ type: 'background4' })
   }
 }

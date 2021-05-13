@@ -5,7 +5,7 @@ import { BackgroundColorsMapService } from "../../services/background-colors-map
 interface BackgroundState {
   backgroundColor: string
 }
-
+ 
 @Component({
   selector: 'app-works-items',
   templateUrl: './works-items.component.html',
@@ -17,6 +17,11 @@ export class WorksItemsComponent implements OnInit {
     {
       routeURL: '/hey',
       routeName: 'Name p1',
+      routeDesc: 'desc'
+    },
+    {
+      routeURL: '/hello',
+      routeName: 'name p2',
       routeDesc: 'desc'
     },
     {

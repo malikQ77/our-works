@@ -14,6 +14,7 @@ import { BackgroundReducer } from "./reducers/background";
 import { IndexComponent } from './components/index/index.component';
 import { BackgroundMangerComponent } from './components/background-manger/background-manger.component';
 import { WorksItemsComponent } from './components/works-items/works-items.component';
+import { LandingComponent } from './components/landing/landing.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { WorksItemsComponent } from './components/works-items/works-items.compon
     AppComponent,
     IndexComponent,
     BackgroundMangerComponent,
-    WorksItemsComponent
+    WorksItemsComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
