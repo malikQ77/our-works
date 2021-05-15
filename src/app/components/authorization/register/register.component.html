@@ -1,0 +1,186 @@
+<div class="row vh-100">
+  <app-background-manger></app-background-manger>
+  <div class="col-lg-6 d-none d-md-block background-image"></div>
+  <div class="col-lg-6 container">
+    <div>
+      <h1 id="logo">Logo</h1>
+    </div>
+    <div class="container">
+      <div class="form-header">
+        <h2 class="text-center">Create new account</h2>
+      </div>
+      <br><br><br>
+      <form [formGroup]="registerForm" class="regsteration-form">
+        <div class="form-group" required>
+          <label for="Username">User name</label>
+          <input
+            type="text"
+            formControlName="userName"
+            placeholder="Enter user name"
+            class="input"
+            name="userName"
+            [ngClass]="{
+              'input-success':
+                (registerForm.get('userName')?.dirty ||
+                  registerForm.get('userName')?.touched) &&
+                registerForm.get('userName')?.valid,
+              'input-error':
+                (registerForm.get('userName')?.dirty ||
+                  registerForm.get('userName')?.touched) &&
+                registerForm.get('userName')?.invalid
+            }"
+            required
+          />
+          <span class="check-mark-icon align-middle"></span>
+          <div
+            *ngFor="let validation of this.service.validationMessages.userName"
+          >
+            <div
+              *ngIf="
+                registerForm.get('userName')?.hasError(validation.type) &&
+                (registerForm.get('userName')?.dirty ||
+                  registerForm.get('userName')?.touched)
+              "
+            >
+              <small class="error-message">{{ validation.message }}</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group" required>
+          <label for="Birthday">Birthday</label>
+          <input
+            class="input"
+            type="date"
+            placeholder="birthday"
+            name="Birthday"
+          />
+        </div>
+
+        <div class="form-group" required>
+          <label for="password">Password</label>
+          <input
+            type="password"
+            formControlName="password"
+            placeholder="Enter password"
+            class="input"
+            name="password"
+            [ngClass]="{
+              'input-success':
+                (registerForm.get('password')?.dirty ||
+                  registerForm.get('password')?.touched) &&
+                registerForm.get('password')?.valid,
+              'input-error':
+                (registerForm.get('password')?.dirty ||
+                  registerForm.get('password')?.touched) &&
+                registerForm.get('password')?.invalid
+            }"
+            required
+          />
+          <span class="check-mark-icon align-middle"></span>
+          <div
+            *ngFor="let validation of this.service.validationMessages.password"
+          >
+            <div
+              *ngIf="
+                registerForm.get('password')?.hasError(validation.type) &&
+                (registerForm.get('password')?.dirty ||
+                  registerForm.get('password')?.touched)
+              "
+            >
+              <small class="error-message">{{ validation.message }}</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" required>
+          <label for="cPassword">Confirm password</label>
+          <input
+            type="password"
+            formControlName="cPassword"
+            placeholder="Re-enter password"
+            class="input"
+            name="cPassword"
+            [ngClass]="{
+              'input-success':
+                (registerForm.get('cPassword')?.dirty ||
+                  registerForm.get('cPassword')?.touched) &&
+                registerForm.get('cPassword')?.valid,
+              'input-error':
+                (registerForm.get('cPassword')?.dirty ||
+                  registerForm.get('cPassword')?.touched) &&
+                registerForm.get('cPassword')?.invalid
+            }"
+            required
+          />
+          <span class="check-mark-icon align-middle"></span>
+          <div
+            *ngFor="let validation of this.service.validationMessages.cPassword"
+          >
+            <div
+              *ngIf="
+                registerForm.get('cPassword')?.hasError(validation.type) &&
+                (registerForm.get('cPassword')?.dirty ||
+                  registerForm.get('cPassword')?.touched)
+              "
+            >
+              <small class="error-message">{{ validation.message }}</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" required>
+          <label for="email">Email</label>
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="Enter email"
+            class="input"
+            name="email"
+            [ngClass]="{
+              'input-success':
+                (registerForm.get('email')?.dirty ||
+                  registerForm.get('email')?.touched) &&
+                registerForm.get('email')?.valid,
+              'input-error':
+                (registerForm.get('email')?.dirty ||
+                  registerForm.get('email')?.touched) &&
+                registerForm.get('email')?.invalid
+            }"
+            required
+          />
+          <span class="check-mark-icon align-middle"></span>
+          <div *ngFor="let validation of this.service.validationMessages.email">
+            <div
+              *ngIf="
+                registerForm.get('email')?.hasError(validation.type) &&
+                (registerForm.get('email')?.dirty ||
+                  registerForm.get('email')?.touched)
+              "
+            >
+              <small class="error-message">{{ validation.message }}</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group d-flex justify-content-center">
+          <button
+            [disabled]="
+              !(
+                registerForm.get('userName')?.valid &&
+                registerForm.get('firstName')?.valid &&
+                registerForm.get('lastName')?.valid &&
+                registerForm.get('password')?.valid &&
+                registerForm.get('cPassword')?.valid &&
+                registerForm.get('email')?.valid
+              )
+            "
+            type="submit"
+            (click)="submit($event)"
+            class="btn btn-primary submit"
+          >
+            Register
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

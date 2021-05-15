@@ -1,0 +1,115 @@
+<div class="row vh-100">
+  <app-background-manger></app-background-manger>
+  <div class="col-lg-6 d-none d-md-block background-image"></div>
+  <div class="col-lg-6 container">
+    <div class="d-flex justify-content-between">
+      <button routerLink="/" class="btn back-btn">
+        <img width="15" src="../../../../assets/Icons/previous.png" alt="" />
+        Back
+      </button>
+      <h1 id="logo">Logo</h1>
+    </div>
+    <div class="container">
+      <div class="form-header">
+        <h2 class="text-center">Login</h2>
+      </div>
+      <br /><br /><br />
+      <form [formGroup]="loginForm" class="login-form">
+        <div class="form-group">
+          <label for="username">User name</label>
+          <input
+            type="text"
+            class="input"
+            name="username"
+            placeholder="Username"
+            formControlName="userName"
+            [ngClass]="{
+              'input-error':
+                (loginForm.get('userName')?.dirty ||
+                  loginForm.get('userName')?.touched) &&
+                loginForm.get('userName')?.invalid
+            }"
+          />
+          <div
+            *ngFor="let validation of this.service.validationMessages.userName"
+          >
+            <div
+              *ngIf="
+                loginForm.get('userName')?.hasError(validation.type) &&
+                (loginForm.get('userName')?.dirty ||
+                  loginForm.get('userName')?.touched)
+              "
+            >
+              <small class="error-message">{{ validation.message }}</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            class="input"
+            placeholder="Password"
+            formControlName="password"
+            [ngClass]="{
+              'input-error':
+                (loginForm.get('password')?.dirty ||
+                  loginForm.get('password')?.touched) &&
+                loginForm.get('password')?.invalid
+            }"
+          />
+          <div
+            *ngFor="let validation of this.service.validationMessages.password"
+          >
+            <div
+              *ngIf="
+                loginForm.get('password')?.hasError(validation.type) &&
+                (loginForm.get('password')?.dirty ||
+                  loginForm.get('password')?.touched)
+              "
+            >
+              <small class="error-message">Password invalid</small>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="d-flex">
+          <div class="mr-auto">
+            <input
+              type="checkbox"
+              class="checkbox"
+              name="remeber"
+              id="remeber"
+            /><label for="remeber" class="ml-1">Remeber me</label>
+          </div>
+          <div class="ml-auto">
+            <a class="error-message" href="">Forget password ?</a>
+          </div>
+        </div>
+        <br />
+        <div class="form-group d-flex justify-content-center">
+          <button
+            class="btn btn-primary submit"
+            (click)="login($event)"
+            [disabled]="
+              !(
+                loginForm.get('userName')?.valid &&
+                loginForm.get('password')?.valid
+              )
+            "
+          >
+            Login
+          </button>
+        </div>
+        <br /><br />
+        <div class="d-flex justify-content-center">
+          <p>
+            Don't have an account?
+            <a routerLink="/authorization/register">Create a new account</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

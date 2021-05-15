@@ -6,16 +6,19 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule  } from '@angular/common/http';
 
 // reducers
-import { BackgroundReducer } from "./reducers/background";
+import { BackgroundReducer } from './reducers/background';
 
 // components
 import { IndexComponent } from './components/index/index.component';
 import { BackgroundMangerComponent } from './components/background-manger/background-manger.component';
 import { WorksItemsComponent } from './components/works-items/works-items.component';
 import { LandingComponent } from './components/landing/landing.component';
-
+import { RegisterComponent } from './components/authorization/register/register.component';
+import { LoginComponent } from './components/authorization/login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,15 +26,19 @@ import { LandingComponent } from './components/landing/landing.component';
     IndexComponent,
     BackgroundMangerComponent,
     WorksItemsComponent,
-    LandingComponent
+    LandingComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
+    HttpClientModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({backgroundColor : BackgroundReducer}),
-    !environment.production ? StoreDevtoolsModule.instrument() : []
+    StoreModule.forRoot({ backgroundColor: BackgroundReducer }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
