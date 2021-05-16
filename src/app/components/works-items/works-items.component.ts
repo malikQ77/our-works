@@ -24,9 +24,9 @@ export class WorksItemsComponent implements OnInit {
       routeDesc: 'Login page',
     },
     {
-      routeURL: '/hello',
-      routeName: 'name p2',
-      routeDesc: 'desc',
+      routeURL: '/to-base64',
+      routeName: 'Convert Multi Files To Base64',
+      routeDesc: 'Features: files size validation, view files, delete files, etc...',
     },
     {
       routeURL: '/hello',

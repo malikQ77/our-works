@@ -19,6 +19,7 @@ import { WorksItemsComponent } from './components/works-items/works-items.compon
 import { LandingComponent } from './components/landing/landing.component';
 import { RegisterComponent } from './components/authorization/register/register.component';
 import { LoginComponent } from './components/authorization/login/login.component';
+import { ConvertMultiFilesToBase64Component } from './components/convert-multi-files-to-base64/convert-multi-files-to-base64.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { LoginComponent } from './components/authorization/login/login.component
     WorksItemsComponent,
     LandingComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ConvertMultiFilesToBase64Component
   ],
   imports: [
     HttpClientModule,

@@ -1,0 +1,176 @@
+.container {
+    background-color: #fff;
+    padding: 0 !important;
+    margin: 40px auto;
+    box-shadow: 0 8px 32px rgb(0 0 0 / 10%), 0 2px 8px rgb(0 0 0 / 10%);
+    border-radius: 10px;
+    display: grid !important;
+}
+
+.head {
+    background-color: #f6f7f8;
+    height: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding: 0 15px;
+    grid-gap: 0px !important;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.head .dot {
+    width: 12px;
+    height: 12px;
+    background: #999;
+    border-radius: 100px;
+    margin: auto 6px;
+    float: right;
+}
+
+.content{
+    padding: 50px 20px;
+}
+
+.info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px 0;
+}
+
+.info .convertAll {
+    margin: auto 0 auto auto;
+    border: none;
+    outline: none;
+    box-shadow: 0;
+    border-radius: 5px;
+    padding: 7px 25px;
+    color: #fff;
+    font-weight: 300;
+}
+
+.info p {
+    margin: auto auto auto 0;
+}
+
+.errorMsg {
+    margin: auto;
+    color: red;
+    font-size: 13px;
+    text-align: center;
+}
+.infoMsg{
+    margin: auto;
+    color: green;
+    font-size: 16px;
+    text-align: center;
+}
+.card{
+    width: 100% !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+}
+.table{
+    text-align: center;
+    overflow: scroll;
+    width: inherit !important;
+    margin: 0;
+}
+.table img{
+    cursor: pointer;
+}
+.table th{
+    color: #fff;
+    font-weight: 400;
+    border: 0 !important;
+}
+.table td{
+    margin: auto;
+    font-size: 14px;
+}
+.table span{
+    cursor: pointer;
+}
+.files input {
+    outline: 2px dashed #92b0b3;
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    padding: 80px 0px 80px 35%;
+    text-align: center !important;
+    margin: 0;
+    width: 100% !important;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.files input:focus {
+    outline: 2px dashed #92b0b3;
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    border: 1px solid #92b0b3;
+}
+
+.files {
+    position: relative;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 5%), 0 2px 8px rgb(0 0 0 / 5%);
+    min-height: 180px;
+}
+
+.files:after {
+    pointer-events: none;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 85px;
+    right: 0;
+    height: 85px;
+    content: "";
+    background-image: url('../../../assets/Icons/uploadFile.svg');
+    fill: #fff;
+    display: block;
+    margin: 0 auto 20px auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    animation: shake 2s cubic-bezier(.36,.07,.19,.97) both infinite;
+    animation-delay: 2s;
+    transform: translate3d(0, 0, 0);
+}
+
+  
+  @keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
+
+.files:before {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    right: 0;
+    padding: 20px 10px 0 10px;
+    content: "Click to choose files or just drag it here, accepted file types are (pdf, jpeg, png)";
+    display: block;
+    margin: 0 auto;
+    color: #fff;
+    text-align: center;
+   font-weight: 300;
+}

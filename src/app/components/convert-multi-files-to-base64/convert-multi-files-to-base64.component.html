@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="head">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+    <div class="content">
+        <h5>Convert Multi Files To Base64</h5>
+        <div class="form-group files color my-5" [ngStyle]="{'backgroundColor': backgroundColor}">
+            <input type="file" (change)="onFileChanged($event)" class="form-control" multiple="true">
+        </div>
+        <p class="errorMsg">{{errorMsg}}</p>
+        <div *ngIf="selectedFiles.length" class="info">
+            <p>{{selectedFiles.length}} / 15 files</p>
+            <button [ngStyle]="{'backgroundColor': backgroundColor}" (click)="covertFile()" class="convertAll">Convert
+                All</button>
+        </div>
+        <div *ngIf="selectedFiles.length" class=" row card">
+            <table class="table text-center">
+                <thead>
+                    <tr>
+                        <th [ngStyle]="{'backgroundColor': backgroundColor}" scope="col">#</th>
+                        <th [ngStyle]="{'backgroundColor': backgroundColor}" scope="col">Name</th>
+                        <th [ngStyle]="{'backgroundColor': backgroundColor}" scope="col">Type</th>
+                        <th [ngStyle]="{'backgroundColor': backgroundColor}" scope="col">Size</th>
+                        <th [ngStyle]="{'backgroundColor': backgroundColor}" scope="col">View</th>
+                        <th [ngStyle]="{'backgroundColor': backgroundColor}" scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let file of selectedFiles; index as i;">
+
+                        <td>{{i+1}}</td>
+                        <td>{{file.name}}</td>
+                        <td>{{file.type}}</td>
+                        <td>{{updateSize(file.size)}}</td>
+                        <td><img src="../../../assets/Icons/preview.svg" (click)="viewFile(file)"></td>
+                        <td><img src="../../../assets/Icons/delete.svg" (click)="deleteFile(file)"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="convertedFiles.length" class="mt-5 card">
+            <table class="table text-center">
+                <thead>
+                    <tr>
+                        <th [ngStyle]="{'backgroundColor': backgroundColor}" scope="col">#</th>
+                        <th *ngIf="convertedFiles.length" [ngStyle]="{'backgroundColor': backgroundColor}" scope="col">
+                            Download
+                            base64</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let base64 of convertedFiles; index as i;">
+                        <td>{{i+1}}</td>
+                        <td *ngIf="convertedFiles.length"><span (click)="downloadFile(base64)">Download</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
